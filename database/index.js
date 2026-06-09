@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+throw new Error('DATABASE INDEX MODIFICADO');
 const { config } = require('../config/env');
 
 // Set strictQuery before connection
