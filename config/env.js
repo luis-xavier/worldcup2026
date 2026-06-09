@@ -42,7 +42,11 @@ function loadEnvConfig() {
     FRONTEND_URL: process.env.FRONTEND_URL || `http://localhost:${process.env.PORT || 3050}`,
 
     // دیتابیس
-    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost:27017/worldcup2026',
+    MONGODB_URL:
+      process.env.MONGODB_URL ||
+      process.env.MONGO_URL ||
+      process.env.DATABASE_URL ||
+      'mongodb://localhost:27017/worldcup2026',
 
     // امنیت
     JWT_SECRET: process.env.JWT_SECRET || 'worldcup2026_dev_secret_key',
