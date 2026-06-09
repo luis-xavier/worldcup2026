@@ -129,9 +129,10 @@ if (swaggerUi && specs) {
 
 app.get('/debug-env', (req, res) => {
   res.json({
-    foo: process.env.FOO,
-    test: process.env.TEST,
-    mongo: process.env.MONGODB_URL,
+    FOO: process.env.FOO,
+    TEST: process.env.TEST,
+    MONGODB_URL: process.env.MONGODB_URL,
+    MONGO_URL: process.env.MONGO_URL,
     count: Object.keys(process.env).length
   });
 });
