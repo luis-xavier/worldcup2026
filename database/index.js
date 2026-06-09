@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 console.log('DATABASE INDEX CARGADO');
-console.log('ENV KEYS');
-console.log(Object.keys(process.env).sort());
-throw new Error('STOP');
+console.log('MONGODB_URL=', process.env.MONGODB_URL);
+console.log('FOO=', process.env.FOO);
 
 const { config } = require('../config/env');
 
