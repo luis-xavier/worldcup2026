@@ -1,21 +1,11 @@
 const mongoose = require('mongoose');
+const { config } = require('../config/env');
 
 // Set strictQuery before connection
 mongoose.set('strictQuery', false);
 
-// MongoDB connection - Configuration from environment variables
-const isProd = process.env.NODE_ENV === 'production';
-
-const MONGODB_CONFIG = isProd ? {
-    url: process.env.MONGODB_URL,
-    options: {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 10000,
-        socketTimeoutMS: 45000,
-    }
-} : {
-    url: process.env.MONGODB_URL || 'mongodb://localhost:27017/worldcup2026',
+const MONGODB_CONFIG = {
+    url: config.MONGODB_URL,
     options: {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -24,12 +14,17 @@ const MONGODB_CONFIG = isProd ? {
     }
 };
 
-console.log(`🔌 Connecting to MongoDB (${isProd ? 'Production' : 'Development'})...`);
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('process.env.MONGODB_URL:', process.env.MONGODB_URL);
+console.log('config.MONGODB_URL:', config.MONGODB_URL);
+
+console.log(`🔌 Connecting to MongoDB...`);
 
 mongoose.connect(MONGODB_CONFIG.url, MONGODB_CONFIG.options)
 .then(() => {
     console.log("✅ Successful connection with MongoDB");
-}).catch((err) => {
+})
+.catch((err) => {
     console.log('❌ Error: Connection to MongoDB not successful', err.message);
     process.exit(1);
 });
