@@ -70,6 +70,10 @@ function loadEnvConfig() {
     // Swagger
     ENABLE_SWAGGER: process.env.ENABLE_SWAGGER === 'true' || NODE_ENV === 'development',
     
+    // Custom variables
+    FOO: process.env.FOO,
+    TEST: process.env.TEST,
+    
     // تابع برای دریافت CORS origins
     getCorsOrigins: function() {
       const origins = process.env.CORS_ORIGINS || process.env.CORS_ORIGIN || '*';
