@@ -3,15 +3,8 @@ const { loadEnvConfig, config } = require('./config/env');
 const nodeEnv = loadEnvConfig();
 
 console.log('====================');
-console.log('ENV MONGO VARIABLES');
-
-Object.keys(process.env)
-  .filter(k => k.toUpperCase().includes('MONGO'))
-  .sort()
-  .forEach(k => {
-    console.log(`${k}=${process.env[k]}`);
-  });
-console.log('TEST=', process.env.TEST);
+console.log('ALL ENV');
+console.log(process.env);
 console.log('====================');
 
 const express = require('express');
