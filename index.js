@@ -133,7 +133,7 @@ app.get('/debug-env', (req, res) => {
     TEST: process.env.TEST,
     MONGODB_URL: process.env.MONGODB_URL,
     MONGO_URL: process.env.MONGO_URL,
-    count: Object.keys(process.env).length
+    RAILWAY_ENVIRONMENT: process.env.RAILWAY_ENVIRONMENT
   });
 });
 
