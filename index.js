@@ -3,9 +3,15 @@ const { loadEnvConfig, config } = require('./config/env');
 const nodeEnv = loadEnvConfig();
 
 console.log('====================');
-console.log('MONGODB_URL=', process.env.MONGODB_URL);
-console.log('PORT=', process.env.PORT);
-console.log('NODE_ENV=', process.env.NODE_ENV);
+console.log('ENV MONGO VARIABLES');
+
+Object.keys(process.env)
+  .filter(k => k.toUpperCase().includes('MONGO'))
+  .sort()
+  .forEach(k => {
+    console.log(`${k}=${process.env[k]}`);
+  });
+console.log('TEST=', process.env.TEST);
 console.log('====================');
 
 const express = require('express');
