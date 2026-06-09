@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 console.log('DATABASE INDEX CARGADO');
+console.log('ENV KEYS');
+console.log(Object.keys(process.env).sort());
+throw new Error('STOP');
+
 const { config } = require('../config/env');
 
 // Set strictQuery before connection
